@@ -1,5 +1,5 @@
 # PyLaFlash
-A short script to create flash slides via Python 3 and LaTeX/Beamer. U
+A short script to create flash slides via Python 3 and LaTeX/Beamer. 
 
 The user inputs the slide content into the _contentSlides.txt_ files. Each Beamer frame is separated by a line consisting only of the **%** char which is how the script identifies the start and end of a frame. 
 
