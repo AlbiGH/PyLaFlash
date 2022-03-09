@@ -1,0 +1,9 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usetheme{Madrid}
+\title[ML Review Slides]{Machine Learning Review Slides}
+\subtitle{a deck of slides reviewing ML concepts and algorithms}
+\author[]{}
+\date{}

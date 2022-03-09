@@ -1,0 +1,75 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usetheme{Madrid}
+\title[ML Review Slides]{Machine Learning Review Slides}
+\subtitle{a deck of slides reviewing ML concepts and algorithms}
+\author[]{}
+\date{}\begin{document}\maketitle%
+\begin{frame}{Nearest Neighbour}
+    \begin{itemize}
+        \item<1->\textbf{Given a set of points $(x_1, ..., x_n)$ and labels $(y_1, ..., y_n)$ where $x_i \in \mathbb{R}^d$ is a vector of explanatory variables and $y \in \mathcal{Y}$ is a set of labels describe how we could use a \textit{K Nearest Neighbour} algorithm to classify a new point $x_{n+1}$ }
+        \item<2->We use some distance function to find the $K$ closest points near $x_{n+1}$. We then classify $x_{n+1}$ as the most common label amongst it's K closest neighbours
+    \end{itemize}
+\end{frame}
+%
+\begin{frame}{Cross Validation}
+    \begin{itemize}
+        \item<1->\textbf{Describe how we would conduct a L-fold cross validation procedure to decide what the best value of $k$ is for a $k-NN$ training algorithm}
+        \item<2-> We divide our data set into $L$ identical parts. Then for each part $i \in {1,...,L}$, we treat that part as the test set and calculate the test error using $k-NN$. We then take the average test error over the $L$ iterations for a specific value of $k$. By doing this with different values of $k$ we can choose the value of $k$ which minimizes test error.  
+    \end{itemize}
+\end{frame}
+%
+\begin{frame}{Distance Functions}
+    \begin{enumerate}
+        \item<1-> Given $d: \mathcal{X} \times \mathcal{X} \rightarrow \mathbb{R}$ state the requirements for $d$ to be a \textbf{metric} \begin{itemize}
+            \item<2-> For all $x,y,z \in \mathcal{X}$ we need $d(x,y) \geq 0$ (nonnegativity)
+            \item<2->$d(x,y) = 0 iff x=y$
+            \item<2->$d(x,y) = d(y,x)$ (symmetry)
+            \item<2->$d(x,z) \geq d(x,y) + d(y,z)$ (triangle inequality)
+        \end{itemize}
+    \end{enumerate}
+\end{frame}
+%
+\begin{frame}{Nearest Neighbour}
+    \begin{itemize}
+        \item<1-> \textbf{What is the training error of the \textbf{K Nearest Neighbour} algorithm where $K=1$ and why?}
+        \item<2-> The training error is 0, this is because the closest point to any point in the training set is itself, and we always have the accurate label information for the point itself
+    \end{itemize}
+\end{frame}
+%
+\begin{frame}{Distance Functions}
+    \begin{enumerate}
+        \item<1-> State the \textbf{Euclidean Distance} formula and the $l_p$ distance formula for $p \geq 1$ in $\mathbb{R}^m$ \begin{itemize} 
+            \item<2-> $||x-z||_2 = \sqrt{\sum^m_{i=1}(x_i - z_i)^2}$ (Euclidean Norm) \\
+            \item<2-> $||x-z||_p = \left(\sum^m_{i=1}|x_i-z_i|^p\right)^{\frac{1}{p}}$ ($l_p$ distance)
+        \end{itemize}
+        \item<1-> What is the $l_{\infty}$ norm? \begin{itemize}
+            \item <3->$l_{\infty} = max_{i}|x_i - z_i|$
+        \end{itemize}
+    \end{enumerate}
+\end{frame}
+%
+\begin{frame}{Distance Functions}
+    \begin{itemize}
+        \item<1-> Given probability distributions $p, q$ on a set $\mathcal{X}$ state the \textbf{Kullback-Leibler divergence} or the \textbf{relative entropy} distance function between $p$ and $q$:
+        \item<2->\begin{align*}
+            d(p,q) &=\sum_{x \in \mathcal{X}}p(x)log\frac{p(x)}{q(x)}
+        \end{align*}
+    \end{itemize}
+\end{frame}
+\begin{frame}{Prediction Problems}
+    \begin{itemize}
+        \item<1-> \textbf{Using input-output terminology, describe the goal of a prediction problem}
+        \item<2-> \textit{Given a vector of inputs $X$, and a set of labels $Y$, the goal of a prediction problem is to come up with a mapping from $X \rightarrow Y$ that minimizes some notion of distance}
+    \end{itemize}
+\end{frame}
+%
+\begin{frame}{Nearest Neighbour}
+    \begin{itemize}
+        \item<1-> \textbf{What is the naive search time for a Nearest Neighbour algorithm? With this search speed what issues might arise?}
+        \item<2-> The search time is $O(n)$ using naive search, as we have to check every point in our training set. This is a slow speed, particularly as $n$ increases
+    \end{itemize}
+\end{frame}
+\end{document}
